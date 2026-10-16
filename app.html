@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#4F46E5">
+<link rel="manifest" href="manifest.json">
+<title>Techwave Client Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ============ SIDEBAR (desktop) ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo-mark" id="sbLogoMark">T</div>
+      <div>
+        <div class="name" id="sbCompanyName">Techwave IT Firm</div>
+        <div class="tag">Client Management</div>
+      </div>
+    </div>
+
+    <div class="nav-group-label">Overview</div>
+    <a href="#" class="nav-link active" data-view="dashboard">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span>
+      Dashboard
+    </a>
+
+    <div class="nav-group-label">Clients</div>
+    <a href="#" class="nav-link" data-view="clients" data-filter="all">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      All Clients <span class="nav-count" id="navCountAll">0</span>
+    </a>
+    <a href="#" class="nav-link" data-view="clients" data-filter="School">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span>
+      Schools <span class="nav-count" id="navCountSchool">0</span>
+    </a>
+    <a href="#" class="nav-link" data-view="clients" data-filter="Business">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="14" rx="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span>
+      Businesses <span class="nav-count" id="navCountBusiness">0</span>
+    </a>
+    <a href="#" class="nav-link" data-view="clients" data-filter="Company">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg></span>
+      Companies <span class="nav-count" id="navCountCompany">0</span>
+    </a>
+    <a href="#" class="nav-link" data-view="clients" data-filter="NGO">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></span>
+      NGOs <span class="nav-count" id="navCountNGO">0</span>
+    </a>
+    <a href="#" class="nav-link" data-view="clients" data-filter="Government">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg></span>
+      Government <span class="nav-count" id="navCountGovernment">0</span>
+    </a>
+
+    <div class="nav-group-label">Records</div>
+    <a href="#" class="nav-link" data-view="notes">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6M9 17h6"/></svg></span>
+      Notes &amp; Documents
+    </a>
+    <a href="#" class="nav-link" data-view="reports">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6M9 17h6"/></svg></span>
+      Engagement Reports <span class="nav-count" id="navCountReports">0</span>
+    </a>
+    <a href="#" class="nav-link" data-view="analytics">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+      Analytics
+    </a>
+    <a href="#" class="nav-link" data-view="activity">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+      Activity Log
+    </a>
+    <a href="#" class="nav-link" data-view="messages">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v13H7l-3 3V4Z"/></svg></span>
+      Messages <span class="nav-count" id="navCountUnread" style="display:none;">0</span>
+    </a>
+
+    <div class="nav-group-label" id="systemGroupLabel">System</div>
+    <a href="#" class="nav-link admin-only hidden" data-view="accounts">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      Accounts
+    </a>
+    <a href="#" class="nav-link" data-view="settings">
+      <span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.6 1Z"/></svg></span>
+      Settings
+    </a>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="av" id="sbUserAv">A</div>
+        <div>
+          <div class="who" id="sbUserName">—</div>
+          <div class="role" id="sbUserRole">—</div>
+        </div>
+      </div>
+      <button class="logout-btn" id="logoutBtn">Sign out</button>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+    <div class="topbar">
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" title="Menu">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <h1 id="topbarTitle">Dashboard</h1>
+      <div class="search-box">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="globalSearch" placeholder="Search clients by name, phone, county…">
+      </div>
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle dark mode">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn" id="colorQuickBtn" title="Change software color">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 22a10 10 0 1 1 0-20c5 0 9 3.5 9 8 0 2.5-2 4-4.5 4H14a2 2 0 0 0-1 3.7c.5.4.8 1 .8 1.6 0 1.5-1.2 2.7-2.8 2.7Z"/></svg>
+      </button>
+      <button class="icon-btn" id="myAccountBtn" title="My account">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+
+    <div class="content">
+
+      <!-- ===== DASHBOARD ===== -->
+      <section class="view active" id="view-dashboard">
+        <div class="view-head">
+          <div>
+            <h2 id="dashGreeting">Welcome back 👋</h2>
+            <p>Here's what's happening across all your clients today.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-primary" id="dashAddClientBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Add Client
+            </button>
+          </div>
+        </div>
+
+        <div class="stat-grid" id="statGrid"></div>
+
+        <div class="dash-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Recent Activity</h3>
+              <a href="#" class="nav-link" style="color:var(--primary); font-size:12.5px; padding:0;" data-view="activity">View all</a>
+            </div>
+            <div class="panel-body" id="dashActivityList"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Free School Program</h3>
+              <span class="badge-count" id="freeSchoolCount">0</span>
+            </div>
+            <div class="panel-body" id="dashFreeSchools"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CLIENTS ===== -->
+      <section class="view" id="view-clients">
+        <div class="view-head">
+          <div>
+            <h2 id="clientsTitle">All Clients</h2>
+            <p id="clientsSub">Every school, business, company, NGO and government client in one list.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-outline" id="exportClientsBtn">Export</button>
+            <button class="btn btn-outline" id="printClientsBtn">Print</button>
+            <button class="btn btn-primary" id="addClientBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Add Client
+            </button>
+          </div>
+        </div>
+
+        <div class="filters-row">
+          <select id="statusFilter">
+            <option value="">All statuses</option>
+            <option value="Active">Active</option>
+            <option value="Pending">Pending</option>
+            <option value="Expired">Expired</option>
+          </select>
+          <input type="text" id="countyFilter" placeholder="Filter by county…">
+          <span style="margin-left:auto; font-size:12.5px; color:var(--muted);"><span id="clientsCountLabel">0</span> clients</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Type</th>
+                <th>Contact</th>
+                <th>County</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="clientsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== NOTES & DOCUMENTS ===== -->
+      <section class="view" id="view-notes">
+        <div class="view-head">
+          <div>
+            <h2>Notes &amp; Documents</h2>
+            <p>Meeting notes, support history, training records and complaints — shared with the whole team.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-primary" id="addNoteBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Add Note
+            </button>
+          </div>
+        </div>
+        <div id="notesList"></div>
+      </section>
+
+      <!-- ===== ENGAGEMENT REPORTS ===== -->
+      <section class="view" id="view-reports">
+        <div class="view-head">
+          <div>
+            <h2>Engagement Reports</h2>
+            <p id="reportsSub">Reports you file are private — only you and an administrator can see them.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-primary" id="addReportBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              File Engagement Report
+            </button>
+          </div>
+        </div>
+        <div id="reportsList"></div>
+      </section>
+
+      <!-- ===== ANALYTICS ===== -->
+      <section class="view" id="view-analytics">
+        <div class="view-head">
+          <div>
+            <h2>Analytics</h2>
+            <p>A quick breakdown of your client base.</p>
+          </div>
+        </div>
+        <div class="dash-grid">
+          <div class="panel">
+            <div class="panel-head"><h3>Clients by Type</h3></div>
+            <div class="panel-body pad" id="reportByType"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>Clients by Status</h3></div>
+            <div class="panel-body pad" id="reportByStatus"></div>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:18px;">
+          <div class="panel-head"><h3>Contracts Expiring Soon (30 days)</h3></div>
+          <div class="panel-body" id="reportExpiring"></div>
+        </div>
+      </section>
+
+      <!-- ===== ACTIVITY LOG ===== -->
+      <section class="view" id="view-activity">
+        <div class="view-head">
+          <div>
+            <h2>Activity Log</h2>
+            <p id="activitySub">A history of everything added, edited or removed.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-body" id="fullActivityList"></div>
+        </div>
+      </section>
+
+      <!-- ===== MESSAGES ===== -->
+      <section class="view" id="view-messages">
+        <div class="view-head">
+          <div>
+            <h2>Messages</h2>
+            <p>Send a message to one account, or broadcast to everyone.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-primary" id="composeMsgBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              New Message
+            </button>
+          </div>
+        </div>
+        <div class="settings-nav" style="flex-direction:row; display:inline-flex; margin-bottom:16px; width:auto;">
+          <button class="active" id="msgTabInbox" data-mtab="inbox">Inbox</button>
+          <button id="msgTabSent" data-mtab="sent">Sent</button>
+        </div>
+        <div id="messagesList"></div>
+      </section>
+
+      <!-- ===== ACCOUNTS (admin only) ===== -->
+      <section class="view" id="view-accounts">
+        <div class="view-head">
+          <div>
+            <h2>Accounts</h2>
+            <p>Create staff and admin accounts, and enable, disable, edit or delete them.</p>
+          </div>
+          <div class="view-actions">
+            <button class="btn btn-primary" id="addAccountBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              New Account
+            </button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Username</th><th>Role</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody id="accountsTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== SETTINGS ===== -->
+      <section class="view" id="view-settings">
+        <div class="view-head">
+          <div>
+            <h2>Settings</h2>
+            <p>Customize branding, colors, the login screen, and your own account.</p>
+          </div>
+        </div>
+
+        <div class="settings-grid">
+          <div class="settings-nav">
+            <button class="active admin-only-pane" data-pane="branding">🏢 Branding</button>
+            <button class="admin-only-pane" data-pane="appearance">🎨 Appearance &amp; Colors</button>
+            <button class="admin-only-pane" data-pane="login">🖼️ Login Screen Slider</button>
+            <button data-pane="account">🔒 My Account</button>
+          </div>
+
+          <div>
+            <!-- BRANDING (admin only) -->
+            <div class="settings-pane active" id="pane-branding">
+              <div class="panel">
+                <div class="panel-head"><h3>Company Logo</h3></div>
+                <div class="panel-body pad">
+                  <div class="upload-row">
+                    <div class="upload-preview" id="logoPreview">No logo</div>
+                    <div>
+                      <label class="btn btn-outline btn-sm" style="cursor:pointer;">
+                        Upload logo
+                        <input type="file" id="logoUploadInput" accept="image/*" class="hidden">
+                      </label>
+                      <button class="btn btn-ghost btn-sm" id="removeLogoBtn">Remove</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel" style="margin-top:16px;">
+                <div class="panel-head"><h3>Company Details</h3></div>
+                <div class="panel-body pad">
+                  <div class="form-grid">
+                    <div class="field"><label>Company Name</label><input id="setCompanyName"></div>
+                    <div class="field"><label>Website</label><input id="setWebsite" placeholder="https://"></div>
+                    <div class="field"><label>Phone</label><input id="setPhone"></div>
+                    <div class="field"><label>Email</label><input id="setEmail" type="email"></div>
+                    <div class="field full"><label>Address</label><input id="setAddress"></div>
+                    <div class="field"><label>Facebook</label><input id="setFacebook"></div>
+                    <div class="field"><label>Instagram</label><input id="setInstagram"></div>
+                    <div class="field"><label>WhatsApp</label><input id="setWhatsapp"></div>
+                    <div class="field"><label>Footer Text</label><input id="setFooter"></div>
+                    <div class="field full"><label>Mission</label><textarea id="setMission" rows="2"></textarea></div>
+                    <div class="field full"><label>Vision</label><textarea id="setVision" rows="2"></textarea></div>
+                    <div class="field full"><label>Company Profile</label><textarea id="setProfile" rows="3"></textarea></div>
+                  </div>
+                  <button class="btn btn-primary" id="saveBrandingBtn" style="margin-top:14px;">Save changes</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- APPEARANCE (admin only) -->
+            <div class="settings-pane" id="pane-appearance">
+              <div class="panel">
+                <div class="panel-head"><h3>Theme Mode</h3></div>
+                <div class="panel-body pad">
+                  <div style="display:flex; gap:10px;">
+                    <button class="btn btn-outline" id="lightModeBtn">☀️ Light</button>
+                    <button class="btn btn-outline" id="darkModeBtn">🌙 Dark</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel" style="margin-top:16px;">
+                <div class="panel-head"><h3>Primary Color</h3></div>
+                <div class="panel-body pad">
+                  <p class="section-note">Pick a brand color, or set your own. This updates buttons, links and highlights across the whole app instantly, for everyone.</p>
+                  <div class="color-swatches" id="primarySwatches"></div>
+                  <div class="color-custom">
+                    <input type="color" id="primaryColorPicker" value="#4F46E5">
+                    <span style="font-size:13px; color:var(--muted);">Custom primary color</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel" style="margin-top:16px;">
+                <div class="panel-head"><h3>Accent Color</h3></div>
+                <div class="panel-body pad">
+                  <div class="color-swatches" id="accentSwatches"></div>
+                  <div class="color-custom">
+                    <input type="color" id="accentColorPicker" value="#14B8A6">
+                    <span style="font-size:13px; color:var(--muted);">Custom accent color</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- LOGIN SCREEN SLIDER (admin only) -->
+            <div class="settings-pane" id="pane-login">
+              <div class="panel">
+                <div class="panel-head">
+                  <h3>Login Background Slider</h3>
+                  <label class="btn btn-primary btn-sm" style="cursor:pointer;">
+                    Add image
+                    <input type="file" id="loginBgUploadInput" accept="image/*" class="hidden">
+                  </label>
+                </div>
+                <div class="panel-body pad">
+                  <p class="section-note">Add as many images as you like — the sign-in screen rotates through them automatically. Change this any time; it updates immediately.</p>
+                  <div class="field" style="max-width:220px;">
+                    <label>Seconds per slide</label>
+                    <input type="number" id="setSlideSeconds" min="2" max="60" value="6">
+                  </div>
+                  <div class="gallery-grid" id="loginSliderGrid"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MY ACCOUNT (everyone) -->
+            <div class="settings-pane" id="pane-account">
+              <div class="panel">
+                <div class="panel-head"><h3>Profile</h3></div>
+                <div class="panel-body pad">
+                  <div class="form-grid">
+                    <div class="field"><label>Full name</label><input id="acctName"></div>
+                    <div class="field"><label>Username</label><input id="acctUsername" disabled></div>
+                    <div class="field"><label>Role</label><input id="acctRole" disabled></div>
+                  </div>
+                  <button class="btn btn-primary" id="saveProfileBtn" style="margin-top:14px;">Save name</button>
+                </div>
+              </div>
+
+              <div class="panel" style="margin-top:16px;">
+                <div class="panel-head"><h3>Change Password</h3></div>
+                <div class="panel-body pad">
+                  <p class="section-note">Every account changes its own password — nobody else, including an administrator, can do this for you.</p>
+                  <div class="form-grid">
+                    <div class="field"><label>Current password</label><input id="acctCurrentPassword" type="password"></div>
+                    <div class="field"><label>New password</label><input id="acctNewPassword" type="password" placeholder="At least 6 characters"></div>
+                  </div>
+                  <button class="btn btn-primary" id="changePasswordBtn" style="margin-top:6px;">Update password</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============ MOBILE BOTTOM NAV ============ -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="#" class="bn-link active" data-view="dashboard">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#" class="bn-link" data-view="clients" data-filter="all">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      <span>Clients</span>
+    </a>
+    <a href="#" class="bn-link" data-view="reports">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6M9 17h6"/></svg>
+      <span>Reports</span>
+    </a>
+    <a href="#" class="bn-link" data-view="messages">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v13H7l-3 3V4Z"/></svg>
+      <span>Messages</span>
+    </a>
+    <a href="#" class="bn-link" id="bnMenu">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      <span>Menu</span>
+    </a>
+  </nav>
+  <div class="mobile-nav-overlay hidden" id="mobileNavOverlay"></div>
+</div>
+
+<!-- ============ CLIENT MODAL ============ -->
+<div class="modal-overlay hidden" id="clientModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="clientModalTitle">Add Client</h3>
+      <button class="modal-close" id="clientModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="clientForm">
+        <input type="hidden" id="clientId">
+        <div class="form-grid">
+          <div class="field full"><label>Client Name *</label><input id="fClientName" required></div>
+          <div class="field">
+            <label>Institution Type *</label>
+            <select id="fType" required>
+              <option value="School">School</option>
+              <option value="Business">Business</option>
+              <option value="Company">Company</option>
+              <option value="NGO">NGO</option>
+              <option value="Government">Government</option>
+              <option value="Church">Church</option>
+              <option value="Hospital">Hospital</option>
+              <option value="University">University</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Status</label>
+            <select id="fStatus">
+              <option value="Active">Active</option>
+              <option value="Pending">Pending</option>
+              <option value="Expired">Expired</option>
+            </select>
+          </div>
+          <div class="field"><label>Contact Person</label><input id="fContact"></div>
+          <div class="field"><label>Phone Number</label><input id="fPhone"></div>
+          <div class="field"><label>Email</label><input id="fEmail" type="email"></div>
+          <div class="field"><label>Website</label><input id="fWebsite" placeholder="https://"></div>
+          <div class="field full"><label>Address</label><input id="fAddress"></div>
+          <div class="field"><label>County</label><input id="fCounty"></div>
+          <div class="field"><label>Country</label><input id="fCountry" value="Liberia"></div>
+          <div class="field"><label>Business Registration No.</label><input id="fRegNo"></div>
+          <div class="field"><label>Date Registered</label><input id="fDateRegistered" type="date"></div>
+          <div class="field"><label>Contract Expiry</label><input id="fContractExpiry" type="date"></div>
+          <div class="field">
+            <label>Free School Service?</label>
+            <select id="fFreeService"><option value="No">No</option><option value="Yes">Yes</option></select>
+          </div>
+          <div class="field full"><label>Notes</label><textarea id="fNotes" rows="3" placeholder="Meeting notes, support history, training, complaints, recommendations…"></textarea></div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="clientCancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="clientSaveBtn">Save Client</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CLIENT DETAIL MODAL ============ -->
+<div class="modal-overlay hidden" id="detailModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="detailModalTitle">Client Details</h3>
+      <button class="modal-close" id="detailModalClose">✕</button>
+    </div>
+    <div class="modal-body" id="detailModalBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="detailPrintBtn">Print</button>
+      <button class="btn btn-primary" id="detailEditBtn">Edit</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NOTE MODAL ============ -->
+<div class="modal-overlay hidden" id="noteModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Add Note</h3>
+      <button class="modal-close" id="noteModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="noteForm">
+        <div class="field">
+          <label>Related Client (optional)</label>
+          <select id="nClientId"><option value="">General note (not linked to a client)</option></select>
+        </div>
+        <div class="field">
+          <label>Category</label>
+          <select id="nCategory">
+            <option>Meeting Notes</option>
+            <option>Support History</option>
+            <option>Training</option>
+            <option>Complaint</option>
+            <option>Recommendation</option>
+          </select>
+        </div>
+        <div class="field"><label>Note</label><textarea id="nText" rows="5" required></textarea></div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="noteCancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="noteSaveBtn">Save Note</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ENGAGEMENT REPORT MODAL ============ -->
+<div class="modal-overlay hidden" id="reportModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="reportModalTitle">File Engagement Report</h3>
+      <button class="modal-close" id="reportModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="reportForm">
+        <input type="hidden" id="reportId">
+        <div class="form-grid">
+          <div class="field full">
+            <label>Client *</label>
+            <select id="rClientId" required></select>
+          </div>
+          <div class="field">
+            <label>Engagement Type *</label>
+            <select id="rType" required>
+              <option>Site Visit</option>
+              <option>Phone Call</option>
+              <option>Training Session</option>
+              <option>Support Ticket</option>
+              <option>Follow-up</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Date *</label><input id="rDate" type="date" required></div>
+          <div class="field">
+            <label>Outcome</label>
+            <select id="rOutcome">
+              <option>Positive</option>
+              <option>Neutral</option>
+              <option>Needs Follow-up</option>
+              <option>Issue Raised</option>
+            </select>
+          </div>
+          <div class="field"><label>Next Follow-up Date</label><input id="rFollowUp" type="date"></div>
+          <div class="field full"><label>Summary *</label><textarea id="rSummary" rows="5" required placeholder="What happened during this engagement?"></textarea></div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="reportCancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="reportSaveBtn">Save Report</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ACCOUNT (CREATE/EDIT) MODAL ============ -->
+<div class="modal-overlay hidden" id="accountModal">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-head">
+      <h3 id="accountModalTitle">New Account</h3>
+      <button class="modal-close" id="accountModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="accountForm">
+        <input type="hidden" id="accUid">
+        <div class="field"><label>Full name *</label><input id="accName" required></div>
+        <div class="field"><label>Username *</label><input id="accUsername" required autocomplete="off"></div>
+        <div class="field" id="accPasswordField"><label>Password *</label><input id="accPassword" type="password" placeholder="At least 6 characters"></div>
+        <div class="field">
+          <label>Role</label>
+          <select id="accRole">
+            <option value="staff">Staff (reporting)</option>
+            <option value="admin">Administrator</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="accountCancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="accountSaveBtn">Save Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ COMPOSE MESSAGE MODAL ============ -->
+<div class="modal-overlay hidden" id="messageModal">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-head">
+      <h3>New Message</h3>
+      <button class="modal-close" id="messageModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="messageForm">
+        <div class="field">
+          <label>Send to</label>
+          <select id="mTo"><option value="all">All Accounts</option></select>
+        </div>
+        <div class="field"><label>Subject *</label><input id="mSubject" required></div>
+        <div class="field"><label>Message *</label><textarea id="mBody" rows="5" required></textarea></div>
+      </form>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-outline" id="messageCancelBtn">Cancel</button>
+      <button class="btn btn-primary" id="messageSendBtn">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ QUICK COLOR PICKER POPOVER ============ -->
+<div class="modal-overlay hidden" id="quickColorModal">
+  <div class="modal" style="max-width:380px;">
+    <div class="modal-head">
+      <h3>Software Color</h3>
+      <button class="modal-close" id="quickColorClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="section-note">Pick the primary color used throughout TCMS.</p>
+      <div class="color-swatches" id="quickSwatches"></div>
+      <div class="color-custom">
+        <input type="color" id="quickColorPicker" value="#4F46E5">
+        <span style="font-size:13px; color:var(--muted);">Custom color</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="js/local-store.js"></script>
+<script src="js/db.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

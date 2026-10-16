@@ -1,0 +1,11 @@
+{
+  "name": "Techwave Client Management System",
+  "short_name": "Techwave",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#4F46E5",
+  "orientation": "portrait-primary",
+  "description": "Client & institution management for Techwave IT Firm — clients, engagement reports, accounts and messaging, synced across every device.",
+  "icons": []
+}

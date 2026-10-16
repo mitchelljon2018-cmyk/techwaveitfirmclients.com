@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="theme-color" content="#4F46E5">
+<link rel="manifest" href="manifest.json">
+<title>Techwave Client Management System — Sign In</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="login-screen">
+
+  <!-- Visual side — background slider, managed by an admin any time in Settings -->
+  <div class="login-visual" id="loginVisual">
+    <div class="slider-dots" id="sliderDots"></div>
+    <div class="login-visual-content">
+      <span class="eyebrow">Client &amp; Institution Management</span>
+      <h1 id="visualHeadline">Every school, business and partner Techwave serves — organized in one place.</h1>
+      <p>Track contracts, support history and engagement reports for schools, companies, NGOs and government institutions — all in one offline system your team can rely on.</p>
+    </div>
+  </div>
+
+  <!-- Form side -->
+  <div class="login-form-side">
+
+    <!-- ===== normal sign-in form ===== -->
+    <div class="login-box" id="loginBox">
+      <div class="logo-row">
+        <div class="logo-mark" id="loginLogoMark">T</div>
+        <div>
+          <div style="font-weight:700; font-size:15px;" id="loginCompanyName">Techwave IT Firm</div>
+          <div style="font-size:11.5px; color:var(--muted);">Client Management System</div>
+        </div>
+      </div>
+
+      <h2>Welcome back</h2>
+      <p class="sub">Sign in to manage your clients and institutions.</p>
+
+      <div class="login-error" id="loginError">Incorrect username or password. Please try again.</div>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn">Sign in</button>
+      </form>
+    </div>
+
+    <!-- ===== first-run: create administrator account ===== -->
+    <div class="login-box hidden" id="setupBox">
+      <div class="logo-row">
+        <div class="logo-mark" id="setupLogoMark">T</div>
+        <div>
+          <div style="font-weight:700; font-size:15px;">Techwave IT Firm</div>
+          <div style="font-size:11.5px; color:var(--muted);">Client Management System</div>
+        </div>
+      </div>
+
+      <h2>Set up your workspace</h2>
+      <p class="sub">No administrator account exists yet. Create the first one to get started — you'll be able to add more staff accounts once you're signed in.</p>
+
+      <div class="login-error" id="setupError"></div>
+
+      <form id="setupForm" autocomplete="off">
+        <div class="field">
+          <label for="setupName">Full name</label>
+          <input type="text" id="setupName" required>
+        </div>
+        <div class="field">
+          <label for="setupUsername">Choose a username</label>
+          <input type="text" id="setupUsername" required>
+        </div>
+        <div class="field">
+          <label for="setupPassword">Choose a password</label>
+          <input type="password" id="setupPassword" placeholder="At least 6 characters" required minlength="6">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="setupSubmitBtn">Create administrator account</button>
+      </form>
+    </div>
+
+    <div class="login-box hidden" id="loadingBox">
+      <p class="sub">Loading…</p>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="js/local-store.js"></script>
+<script src="js/db.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
